@@ -2,6 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { useRouterHistory } from 'react-router'
 import { createHistory } from 'history'
+import Immutable from 'immutable'
+
 import makeRoutes from './routes'
 import Root from './containers/Root'
 import configureStore from './redux/configureStore'
@@ -9,7 +11,7 @@ import configureStore from './redux/configureStore'
 const historyConfig = { basename: __BASENAME__ }
 const history = useRouterHistory(createHistory)(historyConfig)
 
-const initialState = window.__INITIAL_STATE__
+const initialState = Immutable.Map()
 const store = configureStore({ initialState, history })
 
 const routes = makeRoutes(store)

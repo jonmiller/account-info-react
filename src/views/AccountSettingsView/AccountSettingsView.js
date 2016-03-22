@@ -21,6 +21,8 @@ export class AccountSettingsView extends React.Component {
   constructor (props) {
     super(props)
     this.state = { email: props.email }
+    this.handleEmailChange = this.handleEmailChange.bind(this)
+    this.handleSaveClick = this.handleSaveClick.bind(this)
   }
 
   render () {
@@ -34,15 +36,23 @@ export class AccountSettingsView extends React.Component {
               placeholder='Enter email'
               type='text'
               value={this.state.email}
-              onChange={(e) => this.setState({ email: e.target.value })} />
+              onChange={this.handleEmailChange} />
             <ButtonInput
               type='submit'
               value='Save'
-              onClick={() => this.props.setEmail(this.state.email)} />
+              onClick={this.handleSaveClick} />
           </form>
         </div>
       </div>
     )
+  }
+
+  handleEmailChange (e) {
+    this.setState({ email: e.target.value })
+  }
+
+  handleSaveClick () {
+    this.props.setEmail(this.state.email)
   }
 
 }

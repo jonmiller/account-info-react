@@ -11,6 +11,7 @@
     "browser" : true
   },
   "globals" : {
+    "Action"       : false,
     "__DEV__"      : false,
     "__PROD__"     : false,
     "__DEBUG__"    : false,
@@ -18,8 +19,8 @@
     "__BASENAME__" : false
   },
   "rules": {
+    "no-class-assign": 0,
     "semi" : [2, "never"],
-    "space-infix-ops": 0,
     "max-len": [2, 120, 2],
     "flow-vars/define-flow-type": 1,
     "flow-vars/use-flow-type": 1

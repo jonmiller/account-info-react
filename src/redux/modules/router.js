@@ -1,14 +1,14 @@
 import Immutable from 'immutable'
-import { UPDATE_LOCATION } from 'react-router-redux'
+import { LOCATION_CHANGE } from 'react-router-redux'
 
-let initialState = Immutable.fromJS({
-  location: undefined
+const initialState = Immutable.fromJS({
+  locationBeforeTransitions: null
 })
 
 export default (state = initialState, action) => {
-  if (action.type === UPDATE_LOCATION) {
+  if (action.type === LOCATION_CHANGE) {
     return state.merge({
-      location: action.payload
+      locationBeforeTransitions: action.payload
     })
   }
   return state

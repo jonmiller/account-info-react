@@ -45,7 +45,7 @@ const ACTION_HANDLERS = {
   [SET_FULL_NAME]: (state, action) => state.merge({ fullName: action.payload }),
   [SET_CARD_NUMBER]: (state, action) => state.merge({ cardNumber: action.payload }),
   [SET_EXPIRATION_DATE]: (state, action) => state.merge({ expirationDate: action.payload }),
-  [SET_CCV]: (state, action) => state.merge({ ccv: action.payload }),
+  [SET_CCV]: (state, action) => state.merge({ ccv: action.payload })
 }
 
 // ------------------------------------
@@ -55,7 +55,7 @@ const initialState = Immutable.fromJS({
   fullName: '',
   cardNumber: '',
   expirationDate: '',
-  ccv: '',
+  ccv: ''
 })
 
 export default function accountInfoReducer (state = initialState, action) {

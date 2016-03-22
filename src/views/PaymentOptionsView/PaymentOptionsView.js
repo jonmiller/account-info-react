@@ -1,11 +1,10 @@
 import React, { PropTypes } from 'react'
-import { connect } from 'react-redux'
-import { Input, Button } from 'react-bootstrap'
+// import { connect } from 'react-redux'
+// import { Input, Button } from 'react-bootstrap'
 import Card from 'react-credit-card'
 import {reduxForm} from 'redux-form'
 
-import { actions as paymentOptionsActions } from 'redux/modules/paymentOptions'
-
+// import { actions as paymentOptionsActions } from 'redux/modules/paymentOptions'
 
 // const mapStateToProps = (state) => ({
 //   email: state.get('paymentOptions').get('email')
@@ -13,17 +12,16 @@ import { actions as paymentOptionsActions } from 'redux/modules/paymentOptions'
 
 export class PaymentOptionsView extends React.Component {
 
-  // static propTypes = {
-  //   email: PropTypes.string.isRequired,
-  //   setEmail: PropTypes.func.isRequired
-  // };
+  static propTypes = {
+    fields: PropTypes.object
+  };
 
   // constructor (props) {
   //   super(props)
   // }
 
   render () {
-    const { fields: {fullName, cardNumber, expirationDate, ccv } } = this.props;
+    const { fields: { fullName, cardNumber, expirationDate, ccv } } = this.props
     return (
       <div className='container'>
         <h1>Payment Options</h1>
@@ -52,7 +50,7 @@ export class PaymentOptionsView extends React.Component {
 
 }
 
-PaymentOptionsView = reduxForm({ 
+PaymentOptionsView = reduxForm({
   form: 'paymentOption',
   fields: ['fullName', 'cardNumber', 'expirationDate', 'ccv'],
   getFormState: (state, reduxMountPoint) => state.get(reduxMountPoint).toJS()
